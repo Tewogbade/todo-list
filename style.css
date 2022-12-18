@@ -26,6 +26,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 form input,
@@ -34,6 +35,7 @@ form button {
   font-size: 2rem;
   border: none;
   background: white;
+  border-radius: 0;
 }
 
 form button {
@@ -131,6 +133,7 @@ select {
   width: 10rem;
   cursor: pointer;
   padding: 1rem;
+  font-size: 1rem;
 }
 
 .select::after {
@@ -172,5 +175,8 @@ select {
   }
   .todo {
     font-size: 1.2rem;
+  }
+  select {
+    width: 7rem;
   }
 }
