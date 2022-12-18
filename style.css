@@ -13,6 +13,7 @@ body {
 
 header {
   font-size: 1.5rem;
+  text-align: center;
 }
 .warning {
   color: #ffc400;
@@ -58,7 +59,7 @@ form button:hover {
 }
 
 .todo {
-  margin: 0.5rem;
+  margin: 1rem 0;
   background: white;
   color: black;
   font-size: 1.5rem;
@@ -157,12 +158,19 @@ select {
     min-height: 13vh;
   }
   header {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .todo-input {
     width: 40%;
   }
   .todo-list {
     min-width: 60%;
+  }
+  form input,
+  form button {
+    padding: 0.5rem;
+  }
+  .todo {
+    font-size: 1.2rem;
   }
 }
