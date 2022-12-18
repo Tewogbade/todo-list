@@ -14,7 +14,11 @@ body {
 header {
   font-size: 1.5rem;
 }
-
+.warning {
+  color: #ffc400;
+  visibility: hidden;
+  text-align: center;
+}
 header,
 form {
   min-height: 20vh;
@@ -67,7 +71,7 @@ form button:hover {
 .todo li {
   flex: 1;
 }
-
+.edit-btn,
 .trash-btn,
 .complete-btn {
   background: #db3030;
@@ -80,6 +84,9 @@ form button:hover {
 
 .complete-btn {
   background: #2bc12b;
+}
+.edit-btn {
+  background-color: #57a9bd;
 }
 
 .todo-item {
@@ -139,4 +146,23 @@ select {
 .select:hover::after {
   background: white;
   color: #849b5c;
+}
+
+@media (max-width: 576px) {
+  header {
+    font-size: 1.2rem;
+  }
+  header,
+  form {
+    min-height: 13vh;
+  }
+  header {
+    font-size: 1rem;
+  }
+  .todo-input {
+    width: 40%;
+  }
+  .todo-list {
+    min-width: 60%;
+  }
 }
