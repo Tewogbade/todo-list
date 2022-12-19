@@ -1,9 +1,13 @@
+"use strict";
+
 // SELECTOR
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
 const warning = document.querySelector(".warning");
+const clearAll = document.querySelector(".clear-all");
+const taskDown = document.querySelector(".task-down");
 
 // EVENT LISTENERS
 document.addEventListener("DOMContentLoaded", getTodos);
@@ -11,6 +15,7 @@ todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
 todoList.addEventListener("click", edit);
 filterOption.addEventListener("click", filterTodo);
+clearAll.addEventListener("click", clearTodos);
 
 // FUNCTION
 function addTodo(event) {
@@ -51,11 +56,11 @@ function addTodo(event) {
     //   CLEAR TODO INPUT VALUE
     todoInput.value = "";
   }
+  todoCount();
 }
 
 function deleteCheck(e) {
   const item = e.target;
-
   //  DELETE TODO
   if (item.classList[0] === "trash-btn") {
     const todo = item.parentElement;
@@ -65,22 +70,25 @@ function deleteCheck(e) {
     todo.addEventListener("transitionend", function () {
       todo.remove();
     });
+    todoCount();
   }
+
   //  CHECK MARK
   if (item.classList[0] === "complete-btn") {
     const todo = item.parentElement;
     todo.classList.toggle("completed");
   }
 }
+
 function edit(e) {
   const item = e.target;
-
   //  DELETE TODO
   if (item.classList[0] === "edit-btn") {
     const todo = item.parentElement;
     todoInput.value = todo.innerText;
     removeLocalTodos(todo);
     todo.remove();
+    todoCount();
   }
 }
 
@@ -99,6 +107,7 @@ function filterTodo(e) {
           todo.style.display = "none";
         }
         break;
+
       case "uncompleted":
         if (!todo.classList.contains("completed")) {
           todo.style.display = "flex";
@@ -173,3 +182,30 @@ function removeLocalTodos(todo) {
   todos.splice(todos.indexOf(todoIndex), 1);
   localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+function clearTodos() {
+  localStorage.clear();
+  todoList.innerHTML = [];
+  clearAll.style.display = "none";
+  todoCount();
+}
+
+function todoCount() {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  taskDown.innerHTML = `You have ${todos.length} task${
+    todos.length < 2 ? "" : "s"
+  }`;
+
+  // CLEAR ALL BUTTON
+  if (todos.length >= 2) {
+    clearAll.style.display = "flex";
+  } else {
+    clearAll.style.display = "none";
+  }
+}
+todoCount();

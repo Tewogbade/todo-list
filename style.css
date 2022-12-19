@@ -9,6 +9,7 @@ body {
   color: white;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
+  text-align: center;
 }
 
 header {
@@ -95,9 +96,6 @@ form button:hover {
 .todo-item {
   padding: 0rem 0.5rem;
 }
-.Ntodo-item {
-  display: none;
-}
 
 .fa-trash,
 .fa-check {
@@ -151,18 +149,36 @@ select {
   background: white;
   color: #849b5c;
 }
+.clear-all {
+  display: none;
+  justify-content: center;
+  margin: 3rem;
+}
+
+.clear-all button {
+  color: #f1f1f1;
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 10px;
+  padding: 13px 3rem;
+  background-color: #db3030;
+  border: none;
+  transition: all 0.3s ease;
+  display: flex;
+}
+.clear-all button:hover {
+  background-color: #d85e5e;
+}
 
 @media (max-width: 576px) {
   header {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   header,
   form {
     min-height: 13vh;
   }
-  header {
-    font-size: 1.2rem;
-  }
+
   .todo-input {
     width: 40%;
   }
