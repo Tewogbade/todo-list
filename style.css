@@ -9,7 +9,7 @@ body {
   color: white;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
-  text-align: center;
+  /* text-align: center; */
 }
 
 header {
@@ -169,12 +169,16 @@ select {
 .clear-all button:hover {
   background-color: #d85e5e;
 }
+h3 {
+  text-align: center;
+}
 
 @media (max-width: 576px) {
   header {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    min-height: 20vh;
   }
-  header,
   form {
     min-height: 13vh;
   }
