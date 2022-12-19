@@ -175,9 +175,10 @@ h3 {
 
 @media (max-width: 576px) {
   header {
+    margin-top: 1rem;
     font-size: 1.4rem;
     font-weight: 600;
-    min-height: 20vh;
+    min-height: 15vh;
   }
   form {
     min-height: 13vh;
